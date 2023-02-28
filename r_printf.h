@@ -8,6 +8,8 @@
 #include <stdarg.h>
 #include <limits.h>
 #include <stdint.h>
+#include <stdbool.h>
+#include <string.h>
 
 # define BASE16_MIN	"0123456789abcdef"
 # define BASE16_MAJ "0123456789ABCDEF"
@@ -30,12 +32,19 @@ typedef struct s_conversion
     long long           _ifPointer;
     char                _ifChar;
     char                *_ifStr;
+    bool                _isSpace;
+    bool                _isZero;
+    int                 _argLen;
+    char                *_ARGVAL;
 }               t_conversion;
 
 //UTILS//
 void    ft_putchar(t_conversion *what, char c);
 void    ft_putstr(t_conversion *what, char *str);
 void    ft_putnbr(t_conversion *what, long long nbr);
+int     argLenInt(long long nbr, t_conversion *what);
+int     argLenUInt(unsigned int nbr, t_conversion *what);
+int     argLenStr(char *str, t_conversion *what);
 
 //PARSER//
 void    parser(t_conversion *what, const char *str);

@@ -6,7 +6,7 @@
 /*   By: cmois <cmois@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:32:54 by cmois             #+#    #+#             */
-/*   Updated: 2023/02/28 14:10:36 by cmois            ###   ########.fr       */
+/*   Updated: 2023/02/28 15:16:42 by cmois            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,3 +45,25 @@ void    ft_putnbr(t_conversion *what, long long nbr)
 	else
 		ft_putchar(what, (nbr + 48));
 }
+
+// char	*ft_strjoin(char *s1, char c)
+// {
+// 	char		*str;
+// 	size_t		i;
+// 	size_t		j;
+
+// 	if (s1 == NULL || !c)
+// 		return (NULL);
+// 	str = (char *)malloc(sizeof(char) * strlen(s1) + 1);
+// 	if (str == NULL)
+// 		return (NULL);
+// 	i = 0;
+// 	j = 0;
+// 	while (s1[i])
+// 	{
+// 		str[j++] = s1[i];
+// 		i++;
+// 	}
+//     str[j] = c;
+// 	return (str);
+// }

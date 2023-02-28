@@ -6,7 +6,7 @@
 /*   By: cmois <cmois@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:24:37 by cmois             #+#    #+#             */
-/*   Updated: 2023/02/28 13:57:31 by cmois            ###   ########.fr       */
+/*   Updated: 2023/02/28 15:04:13 by cmois            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@ void    structInit(t_conversion *what)
     what->_ifPointer = 0;
     what->_ifNumber = 0;
     what->_totalLen = 0;
+    what->_isSpace = false;
+    what->_isZero = false;
+    what->_argLen = 0;
+    what->_ARGVAL = NULL;
+    
 }
 
 int ft_printf(const char *str, ...)
