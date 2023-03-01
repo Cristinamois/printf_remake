@@ -34,6 +34,7 @@ typedef struct s_conversion
     char                *_ifStr;
     bool                _isSpace;
     bool                _isZero;
+    bool                _isPlus;
     int                 _argLen;
     char                *_ARGVAL;
     int                 _ARGNBR;

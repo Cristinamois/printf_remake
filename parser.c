@@ -6,7 +6,7 @@
 /*   By: cmois <cmois@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:29:47 by cmois             #+#    #+#             */
-/*   Updated: 2023/03/01 10:44:09 by cmois            ###   ########.fr       */
+/*   Updated: 2023/03/01 10:58:30 by cmois            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,11 @@ void    parser(t_conversion *what, const char *str)
                 doTheJob(what, str[i]);
                 i++;
             }
-            if ((str[i] == ' ' && (str[i + 1] >= '0' && str[i + 1] <= '9')) || (str[i] == '0' && (str[i + 1] >= '0' && str[i + 1] <= '9')))
+            if ((str[i] == ' ' && (str[i + 1] >= '0' && str[i + 1] <= '9')) || (str[i] == '0' && (str[i + 1] >= '0' && str[i + 1] <= '9'))
+                || (str[i] == '+' && (str[i + 1] >= '0' && str[i + 1] <= '9')))
             {
+                if (str[i] == '+')
+                    what->_isPlus = true;                                                                           //ERROR CHECK FOR ARGS
                 if (str[i] == ' ')
                     what->_isSpace = true;
                 if (str[i] == '0')

@@ -6,7 +6,7 @@
 /*   By: cmois <cmois@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:24:37 by cmois             #+#    #+#             */
-/*   Updated: 2023/03/01 10:10:29 by cmois            ###   ########.fr       */
+/*   Updated: 2023/03/01 10:57:48 by cmois            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void    structInit(t_conversion *what)
     ft_bzero(what->_ARGVAL);
     what->_count = 0;
     what->_ARGNBR = 0;
+    what->_isPlus = false;
     
 }
 

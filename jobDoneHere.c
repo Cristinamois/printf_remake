@@ -6,7 +6,7 @@
 /*   By: cmois <cmois@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:37:28 by cmois             #+#    #+#             */
-/*   Updated: 2023/03/01 10:53:58 by cmois            ###   ########.fr       */
+/*   Updated: 2023/03/01 11:07:40 by cmois            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,24 @@ void    whoIsIt(t_conversion *what, char c)
         what->_ifNumber = (int)va_arg(what->paramInfo, int);
         what->_argLen = argLenInt(what->_ifNumber, what);
         what->_ARGNBR -= what->_argLen;
+        if (what->_isPlus == true)
+        {
+            if (what->_ifNumber == 0)
+            {
+                for (int i = 0; (i < what->_ARGNBR - 2); i++)
+                    ft_putchar(what, ' ');
+                ft_putchar(what, '+');
+            }
+            if (what->_ifNumber > 0)
+            {
+                for (int i = 0; (i < what->_ARGNBR - 1); i++)
+                    ft_putchar(what, ' ');
+                ft_putchar(what, '+');
+            }
+            if (what->_ifNumber < 0)
+                for (int i = 0; i < what->_ARGNBR; i++)
+                    ft_putchar(what, ' ');
+        }
         if (what->_isZero == true)
         {
             ft_putchar(what, '-');
@@ -71,6 +89,7 @@ void    whoIsIt(t_conversion *what, char c)
         }
         ft_putnbr(what, what->_ifNumber);
         what->_isZero = false;
+        what->_isPlus = false;
     }
     if (c == P || c == x || c == X)
     {
