@@ -6,7 +6,7 @@
 /*   By: cmois <cmois@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:23:41 by cmois             #+#    #+#             */
-/*   Updated: 2023/02/28 15:18:42 by cmois            ###   ########.fr       */
+/*   Updated: 2023/03/01 09:43:16 by cmois            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int main(int ac, char **av)
     test = 42789879;
     char *str;
     str = "lol";
-    printf("test : %x %% %s\n|% 7d\n", test, str, 789);
+    printf("test : [% 100d] [%x] [%%] [%s]\n", 64, test, str);
     
-    ft_printf(" my test : %x %% %s\n", test, str);
+    ft_printf("temt : [% 100d] [%x] [%%] [%s]\n", 64, test, str);
     return (0);
 }

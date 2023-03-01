@@ -6,7 +6,7 @@
 /*   By: cmois <cmois@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:32:54 by cmois             #+#    #+#             */
-/*   Updated: 2023/02/28 15:16:42 by cmois            ###   ########.fr       */
+/*   Updated: 2023/03/01 09:40:34 by cmois            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,59 @@ void    ft_putnbr(t_conversion *what, long long nbr)
 	else
 		ft_putchar(what, (nbr + 48));
 }
+
+int	toINT(char c)
+{
+	int ret;
+
+	ret = c - 48;
+	return (ret);
+}
+
+void	ft_bzero(char *str)
+{
+	int i = 0;
+	while (str[i])
+	{
+		str[i] = '0';
+		i++;
+	}
+}
+
+char	*joinNumbers(t_conversion *what, char c)
+{
+	char *ret;
+	int i;
+
+	i = 0;
+	ret = what->_ARGVAL;
+	ret[i + what->_count] = c;
+	what->_count++;
+	return (ret);
+}
+
+// char	*joinNumbers(t_conversion *what, char c)
+// {
+// 	int 	i;
+// 	char	*ret;
+
+// 	ret = what->_ARGVAL;
+// 	i = 0;
+// 	while (ret[i] != '\0')
+// 	{
+// 		if (ret[i + 1] == '\0')
+// 		{
+// 			ret = (char *)malloc(sizeof(char) * 1);
+// 			i++;
+// 			ret[i] = c;
+// 		}
+// 		if (ret[i] != '\0')
+// 			i++;
+// 	}
+// 	return (ret);
+// }
+
+//function 
 
 // char	*ft_strjoin(char *s1, char c)
 // {

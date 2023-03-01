@@ -6,7 +6,7 @@
 /*   By: cmois <cmois@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:37:28 by cmois             #+#    #+#             */
-/*   Updated: 2023/02/28 15:10:07 by cmois            ###   ########.fr       */
+/*   Updated: 2023/03/01 09:24:59 by cmois            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,12 @@ void    whoIsIt(t_conversion *what, char c)
     {
         what->_ifChar = va_arg(what->paramInfo, int);
         what->_argLen = 1;
+        what->_ARGNBR -= what->_argLen;
         if (what->_isSpace == true)
         {
-            int howMuch;
-            howMuch = atoi(what->_ARGVAL) - what->_argLen;
-            for (int i = 0; i < howMuch; i++)
+            for (int i = 0; i < what->_ARGNBR; i++)
             {
                 ft_putchar(what, ' ');
-                i++;
             }
         }
         ft_putchar(what, what->_ifChar);
@@ -35,14 +33,12 @@ void    whoIsIt(t_conversion *what, char c)
     {
         what->_ifStr = va_arg(what->paramInfo, char *);
         what->_argLen = argLenStr(what->_ifStr, what);
+        what->_ARGNBR -= what->_argLen;
         if (what->_isSpace == true)
         {
-            int howMuch;
-            howMuch = atoi(what->_ARGVAL) - what->_argLen;
-            for (int i = 0; i < howMuch; i++)
+            for (int i = 0; i < what->_ARGNBR; i++)
             {
                 ft_putchar(what, ' ');
-                i++;
             }
         }
         ft_putstr(what, what->_ifStr);
@@ -51,14 +47,14 @@ void    whoIsIt(t_conversion *what, char c)
     {
         what->_ifNumber = va_arg(what->paramInfo, long long);
         what->_argLen = argLenInt(what->_ifNumber, what);
+        what->_ARGNBR -= what->_argLen;
+        // printf("goes here\n");
         if (what->_isSpace == true)
         {
-            int howMuch;
-            howMuch = atoi(what->_ARGVAL) - what->_argLen;
-            for (int i = 0; i < howMuch; i++)
+            // printf("argval : %c\n", what->_ARGNBR);
+            for (int i = 0; i < what->_ARGNBR; i++)
             {
                 ft_putchar(what, ' ');
-                i++;
             }
         }
         ft_putnbr(what, what->_ifNumber);
@@ -69,29 +65,25 @@ void    whoIsIt(t_conversion *what, char c)
         {
             what->_ifNumber = va_arg(what->paramInfo, long long);
             what->_argLen = argLenInt(what->_ifNumber, what);
+            what->_ARGNBR -= what->_argLen;
             if (what->_isSpace == true)
         {
-            int howMuch;
-            howMuch = atoi(what->_ARGVAL) - what->_argLen;
-            for (int i = 0; i < howMuch; i++)
+            for (int i = 0; i < what->_ARGNBR; i++)
             {
                 ft_putchar(what, ' ');
-                i++;
             }
         }
         }
         if (c == x || c == X)
         {
             what->_ifNumber = va_arg(what->paramInfo, unsigned int);
-            what->_argLen = argLenInt(what->_ifNumber, what);
+            what->_argLen = argLenUInt(what->_ifNumber, what);
+            what->_ARGNBR -= what->_argLen;
             if (what->_isSpace == true)
         {
-            int howMuch;
-            howMuch = atoi(what->_ARGVAL) - what->_argLen;
-            for (int i = 0; i < howMuch; i++)
+            for (int i = 0; i < what->_ARGNBR; i++)
             {
                 ft_putchar(what, ' ');
-                i++;
             }
         }
         }
@@ -101,14 +93,12 @@ void    whoIsIt(t_conversion *what, char c)
     {
         what->_ifNumber = va_arg(what->paramInfo, unsigned int);
         what->_argLen = argLenUInt(what->_ifNumber, what);
+        what->_ARGNBR -= what->_argLen;
         if (what->_isSpace == true)
         {
-            int howMuch;
-            howMuch = atoi(what->_ARGVAL) - what->_argLen;
-            for (int i = 0; i < howMuch; i++)
+            for (int i = 0; i < what->_ARGNBR; i++)
             {
                 ft_putchar(what, ' ');
-                i++;
             }
         }
         ft_putchar(what, what->_ifNumber);
@@ -116,14 +106,12 @@ void    whoIsIt(t_conversion *what, char c)
     if (c == '%')
     {
         what->_argLen = 1;
+        what->_ARGNBR -= what->_argLen;
         if (what->_isSpace == true)
         {
-            int howMuch;
-            howMuch = atoi(what->_ARGVAL) - what->_argLen;
-            for (int i = 0; i < howMuch; i++)
+            for (int i = 0; i < what->_ARGNBR; i++)
             {
                 ft_putchar(what, ' ');
-                i++;
             }
         }
         ft_putchar(what, c);

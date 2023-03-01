@@ -6,7 +6,7 @@
 /*   By: cmois <cmois@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:24:37 by cmois             #+#    #+#             */
-/*   Updated: 2023/02/28 15:04:13 by cmois            ###   ########.fr       */
+/*   Updated: 2023/03/01 09:37:46 by cmois            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ void    structInit(t_conversion *what)
     what->_isSpace = false;
     what->_isZero = false;
     what->_argLen = 0;
-    what->_ARGVAL = NULL;
+    what->_ARGVAL = (char *)malloc(sizeof(char) * 11);
+    ft_bzero(what->_ARGVAL);
+    what->_count = 0;
+    what->_ARGNBR = 0;
     
 }
 

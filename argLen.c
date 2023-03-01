@@ -6,7 +6,7 @@
 /*   By: cmois <cmois@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 14:48:41 by cmois             #+#    #+#             */
-/*   Updated: 2023/02/28 15:18:26 by cmois            ###   ########.fr       */
+/*   Updated: 2023/03/01 09:21:23 by cmois            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,11 @@ int argLenUInt(unsigned int nbr, t_conversion *what)
     (void)what;
 
     ret = 0;
-    if (nbr)
-    {
-        while (nbr / 10)
-        {
-            argLenUInt(nbr, what);
-            ret++;
-        }
-    }
+    while(nbr != 0)  
+    {  
+       nbr /= 10  ;
+       ret++;  
+    }  
     return (ret);
 }
 
@@ -46,13 +43,10 @@ int argLenInt(long long nbr, t_conversion *what)
 
     (void)what;
     ret = 0;
-    if (nbr)
-    {
-        while (nbr / 10)
-        {
-            argLenUInt(nbr, what);
-            ret++;
-        }
+    while(nbr != 0)  
+    {  
+       nbr /= 10  ;
+       ret++;  
     }
     return (ret);
 }

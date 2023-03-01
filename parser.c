@@ -6,7 +6,7 @@
 /*   By: cmois <cmois@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:29:47 by cmois             #+#    #+#             */
-/*   Updated: 2023/02/28 15:17:36 by cmois            ###   ########.fr       */
+/*   Updated: 2023/03/01 09:43:07 by cmois            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,29 @@ void    parser(t_conversion *what, const char *str)
             i++;
             if (isItConvertible(str[i]))
             {
+                
                 doTheJob(what, str[i]);
                 i++;
             }
-            if (str[i] == ' ' && (str[i + 1] >= 0 && str[i + 1] <= 9))
+            // printf("str[i] : {%c}\n", str[i]);
+            if (str[i] == ' ' && (str[i + 1] >= '0' && str[i + 1] <= '9'))
             {
                 what->_isSpace = true;
                 i++;
+                while (str[i] >= '0' && str[i] <= '9')
+                {
+                    // printf("str[i] = {%c}\n", str[i]);
+                    what->_ARGVAL = joinNumbers(what, str[i]);
+                    i++;
+                }
+                // printf("wrgval = %s\n", what->_ARGVAL);
+                what->_ARGNBR = atoi(what->_ARGVAL);
+                // printf("what->_ARGNBR : %d\n", what->_ARGNBR);
+                // i++;
+                // printf("str[i] : {%c}\n", str[i]);
                 if (isItConvertible(str[i]))
                 {
+                    // printf("goes here\n");
                     doTheJob(what, str[i]);
                     i++;
                 }

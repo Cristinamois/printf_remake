@@ -36,6 +36,8 @@ typedef struct s_conversion
     bool                _isZero;
     int                 _argLen;
     char                *_ARGVAL;
+    int                 _ARGNBR;
+    int                 _count;
 }               t_conversion;
 
 //UTILS//
@@ -45,6 +47,9 @@ void    ft_putnbr(t_conversion *what, long long nbr);
 int     argLenInt(long long nbr, t_conversion *what);
 int     argLenUInt(unsigned int nbr, t_conversion *what);
 int     argLenStr(char *str, t_conversion *what);
+int	toINT(char c);
+char	*joinNumbers(t_conversion *what, char c);
+void	ft_bzero(char *str);
 
 //PARSER//
 void    parser(t_conversion *what, const char *str);
