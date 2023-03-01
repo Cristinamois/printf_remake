@@ -6,7 +6,7 @@
 /*   By: cmois <cmois@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:24:37 by cmois             #+#    #+#             */
-/*   Updated: 2023/03/01 09:37:46 by cmois            ###   ########.fr       */
+/*   Updated: 2023/03/01 10:10:29 by cmois            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int ft_printf(const char *str, ...)
     parser(what, str);
     
     returnValue = what->_totalLen;
+    free(what->_ARGVAL);
     free(what);
     return (returnValue);
 }

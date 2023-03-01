@@ -6,7 +6,7 @@
 /*   By: cmois <cmois@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:32:54 by cmois             #+#    #+#             */
-/*   Updated: 2023/03/01 09:55:06 by cmois            ###   ########.fr       */
+/*   Updated: 2023/03/01 10:09:26 by cmois            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,14 @@ char	*joinNumbers(t_conversion *what, char c)
 	ret[i + what->_count] = c;
 	what->_count++;
 	return (ret);
+}
+
+void resetToOrigin(t_conversion *what)
+{
+	ft_bzero(what->_ARGVAL);
+	what->_count = 0;
+	what->_argLen = 0;
+	what->_ARGNBR = 0;
 }
 
 // char	*joinNumbers(t_conversion *what, char c)

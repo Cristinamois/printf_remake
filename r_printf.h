@@ -57,6 +57,11 @@ void doTheJob(t_conversion *what, char c);
 void    treatHexa(t_conversion *what, char c);
 
 
+//reset/free//
+
+void resetToOrigin(t_conversion *what);
+
+
 int ft_printf(const char *, ...);
 
 #endif

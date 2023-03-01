@@ -6,7 +6,7 @@
 /*   By: cmois <cmois@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:37:28 by cmois             #+#    #+#             */
-/*   Updated: 2023/03/01 09:55:38 by cmois            ###   ########.fr       */
+/*   Updated: 2023/03/01 10:07:48 by cmois            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ void    whoIsIt(t_conversion *what, char c)
             {
                 ft_putchar(what, ' ');
             }
+            what->_isSpace = false;
         }
+        resetToOrigin(what);
         ft_putchar(what, what->_ifChar);
     }
     if (c == S)
@@ -40,7 +42,9 @@ void    whoIsIt(t_conversion *what, char c)
             {
                 ft_putchar(what, ' ');
             }
+            what->_isSpace = false;
         }
+        
         ft_putstr(what, what->_ifStr);
     }
     if (c == 'd' || c == I)
@@ -49,7 +53,9 @@ void    whoIsIt(t_conversion *what, char c)
         // printf("number : {%lld}\n", what->_ifNumber);
         what->_argLen = argLenInt(what->_ifNumber, what);
         what->_ARGNBR -= what->_argLen;
-        // printf("goes here\n");
+        // printf("argVAL : {%s}\n", what->_ARGVAL);
+        if (what->_ifNumber < 0)
+            what->_ARGNBR -= 1;
         if (what->_isSpace == true)
         {
             // printf("argval : %c\n", what->_ARGNBR);
@@ -57,6 +63,7 @@ void    whoIsIt(t_conversion *what, char c)
             {
                 ft_putchar(what, ' ');
             }
+            what->_isSpace = false;
         }
         ft_putnbr(what, what->_ifNumber);
     }
@@ -73,6 +80,7 @@ void    whoIsIt(t_conversion *what, char c)
                 {
                     ft_putchar(what, ' ');
                 }
+                what->_isSpace = false;
             }
         }
         if (c == x || c == X)
@@ -86,9 +94,9 @@ void    whoIsIt(t_conversion *what, char c)
                 {
                     ft_putchar(what, ' ');
                 }
+                what->_isSpace = false;
             }
         }
-        
         treatHexa(what, c);
     }
     if (c == U)
@@ -102,6 +110,7 @@ void    whoIsIt(t_conversion *what, char c)
             {
                 ft_putchar(what, ' ');
             }
+            what->_isSpace = false;
         }
         ft_putnbr(what, what->_ifNumber);
     }
@@ -115,6 +124,7 @@ void    whoIsIt(t_conversion *what, char c)
             {
                 ft_putchar(what, ' ');
             }
+            what->_isSpace = false;
         }
         ft_putchar(what, c);
     }
