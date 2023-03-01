@@ -6,7 +6,7 @@
 /*   By: cmois <cmois@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:24:37 by cmois             #+#    #+#             */
-/*   Updated: 2023/03/01 12:23:17 by cmois            ###   ########.fr       */
+/*   Updated: 2023/03/01 13:30:15 by cmois            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void    structInit(t_conversion *what)
     what->_ARGNBR = 0;
     what->_isPlus = false;
     what->_isMinus = false;
+    what->_hashtag = false;
     
 }
 

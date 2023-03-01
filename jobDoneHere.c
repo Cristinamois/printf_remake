@@ -6,7 +6,7 @@
 /*   By: cmois <cmois@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:37:28 by cmois             #+#    #+#             */
-/*   Updated: 2023/03/01 13:26:52 by cmois            ###   ########.fr       */
+/*   Updated: 2023/03/01 13:35:29 by cmois            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,6 +145,13 @@ void    whoIsIt(t_conversion *what, char c)
             what->_ifNumber = (unsigned int)va_arg(what->paramInfo, unsigned int);
             what->_argLen = argLenUInt(what->_ifNumber, what);
             what->_ARGNBR -= what->_argLen;
+            if (what->_hashtag == true)
+            {
+                what->_ARGNBR -= 2;
+                for (int i = 0; i < what->_ARGNBR; i++)
+                    ft_putchar(what, ' ');
+                ft_putstr(what, "0x");
+            }
             if (what->_isMinus == true)
             {
                treatHexa (what, c);
@@ -171,6 +178,7 @@ void    whoIsIt(t_conversion *what, char c)
             treatHexa(what, c);
         what->_isZero = false;
         what->_isMinus = false;
+        what->_hashtag = false;
     }
     if (c == U)
     {

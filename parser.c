@@ -6,7 +6,7 @@
 /*   By: cmois <cmois@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:29:47 by cmois             #+#    #+#             */
-/*   Updated: 2023/03/01 12:31:39 by cmois            ###   ########.fr       */
+/*   Updated: 2023/03/01 13:39:32 by cmois            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,11 @@ void    parser(t_conversion *what, const char *str)
                 i++;
             }
             if ((str[i] == ' ' && (str[i + 1] >= '0' && str[i + 1] <= '9')) || (str[i] == '0' && (str[i + 1] >= '0' && str[i + 1] <= '9'))
-                || (str[i] == '+' && (str[i + 1] >= '0' && str[i + 1] <= '9')) || (str[i] == '-' && (str[i + 1] >= '0' && str[i + 1] <= '9')))
+                || (str[i] == '+' && (str[i + 1] >= '0' && str[i + 1] <= '9')) || (str[i] == '-' && (str[i + 1] >= '0' && str[i + 1] <= '9'))
+                || (str[i] == '#' && (str[i + 1] >= '0' && str[i + 1] <= '9')) || str[i] == '#')
             {
+                if (str[i] == '#')
+                    what->_hashtag = true;
                 if (str[i] == '-')
                     what->_isMinus = true;
                 if (str[i] == '+')

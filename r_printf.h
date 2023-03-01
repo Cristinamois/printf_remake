@@ -37,6 +37,7 @@ typedef struct s_conversion
     bool                _isPlus;
     bool                _isMinus;
     int                 _argLen;
+    bool                _hashtag;
     char                *_ARGVAL;
     int                 _ARGNBR;
     int                 _count;
