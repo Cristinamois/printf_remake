@@ -6,7 +6,7 @@
 /*   By: cmois <cmois@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:37:28 by cmois             #+#    #+#             */
-/*   Updated: 2023/03/01 10:07:48 by cmois            ###   ########.fr       */
+/*   Updated: 2023/03/01 10:53:58 by cmois            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,15 +50,19 @@ void    whoIsIt(t_conversion *what, char c)
     if (c == 'd' || c == I)
     {
         what->_ifNumber = (int)va_arg(what->paramInfo, int);
-        // printf("number : {%lld}\n", what->_ifNumber);
         what->_argLen = argLenInt(what->_ifNumber, what);
         what->_ARGNBR -= what->_argLen;
-        // printf("argVAL : {%s}\n", what->_ARGVAL);
-        if (what->_ifNumber < 0)
+        if (what->_isZero == true)
+        {
+            ft_putchar(what, '-');
             what->_ARGNBR -= 1;
+            for (int i = 0; i < what->_ARGNBR; i++)
+            {
+                ft_putchar(what, '0');
+            }
+        }
         if (what->_isSpace == true)
         {
-            // printf("argval : %c\n", what->_ARGNBR);
             for (int i = 0; i < what->_ARGNBR; i++)
             {
                 ft_putchar(what, ' ');
@@ -66,6 +70,7 @@ void    whoIsIt(t_conversion *what, char c)
             what->_isSpace = false;
         }
         ft_putnbr(what, what->_ifNumber);
+        what->_isZero = false;
     }
     if (c == P || c == x || c == X)
     {
@@ -88,6 +93,13 @@ void    whoIsIt(t_conversion *what, char c)
             what->_ifNumber = (unsigned int)va_arg(what->paramInfo, unsigned int);
             what->_argLen = argLenUInt(what->_ifNumber, what);
             what->_ARGNBR -= what->_argLen;
+            if (what->_isZero == true)
+            {
+                for (int i = 0; i < what->_ARGNBR; i++)
+                {
+                    ft_putchar(what, '0');
+                }
+            }
             if (what->_isSpace == true)
             {
                 for (int i = 0; i < what->_ARGNBR; i++)
@@ -98,12 +110,20 @@ void    whoIsIt(t_conversion *what, char c)
             }
         }
         treatHexa(what, c);
+        what->_isZero = false;
     }
     if (c == U)
     {
         what->_ifNumber = (unsigned int)va_arg(what->paramInfo, unsigned int);
         what->_argLen = argLenUInt(what->_ifNumber, what);
         what->_ARGNBR -= what->_argLen;
+        if (what->_isZero == true)
+        {
+            for (int i = 0; i < what->_ARGNBR; i++)
+            {
+                ft_putchar(what, '0');
+            }
+        }
         if (what->_isSpace == true)
         {
             for (int i = 0; i < what->_ARGNBR; i++)
@@ -113,6 +133,7 @@ void    whoIsIt(t_conversion *what, char c)
             what->_isSpace = false;
         }
         ft_putnbr(what, what->_ifNumber);
+        what->_isZero = false;
     }
     if (c == '%')
     {

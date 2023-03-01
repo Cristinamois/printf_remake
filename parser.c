@@ -6,7 +6,7 @@
 /*   By: cmois <cmois@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:29:47 by cmois             #+#    #+#             */
-/*   Updated: 2023/03/01 09:43:07 by cmois            ###   ########.fr       */
+/*   Updated: 2023/03/01 10:44:09 by cmois            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,25 +37,21 @@ void    parser(t_conversion *what, const char *str)
                 doTheJob(what, str[i]);
                 i++;
             }
-            // printf("str[i] : {%c}\n", str[i]);
-            if (str[i] == ' ' && (str[i + 1] >= '0' && str[i + 1] <= '9'))
+            if ((str[i] == ' ' && (str[i + 1] >= '0' && str[i + 1] <= '9')) || (str[i] == '0' && (str[i + 1] >= '0' && str[i + 1] <= '9')))
             {
-                what->_isSpace = true;
+                if (str[i] == ' ')
+                    what->_isSpace = true;
+                if (str[i] == '0')
+                    what->_isZero = true;
                 i++;
                 while (str[i] >= '0' && str[i] <= '9')
                 {
-                    // printf("str[i] = {%c}\n", str[i]);
                     what->_ARGVAL = joinNumbers(what, str[i]);
                     i++;
                 }
-                // printf("wrgval = %s\n", what->_ARGVAL);
                 what->_ARGNBR = atoi(what->_ARGVAL);
-                // printf("what->_ARGNBR : %d\n", what->_ARGNBR);
-                // i++;
-                // printf("str[i] : {%c}\n", str[i]);
                 if (isItConvertible(str[i]))
                 {
-                    // printf("goes here\n");
                     doTheJob(what, str[i]);
                     i++;
                 }
@@ -66,6 +62,5 @@ void    parser(t_conversion *what, const char *str)
             ft_putchar(what, str[i]);
             i++;
         }
-        // i++;
     }
 }
