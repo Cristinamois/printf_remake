@@ -6,7 +6,7 @@
 /*   By: cmois <cmois@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:37:28 by cmois             #+#    #+#             */
-/*   Updated: 2023/03/01 11:07:40 by cmois            ###   ########.fr       */
+/*   Updated: 2023/03/01 11:38:06 by cmois            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void    whoIsIt(t_conversion *what, char c)
                 ft_putchar(what, '+');
             }
             if (what->_ifNumber < 0)
-                for (int i = 0; i < what->_ARGNBR; i++)
+                for (int i = 0; i < what->_ARGNBR - 1; i++)
                     ft_putchar(what, ' ');
         }
         if (what->_isZero == true)
