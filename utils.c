@@ -6,7 +6,7 @@
 /*   By: cmois <cmois@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:32:54 by cmois             #+#    #+#             */
-/*   Updated: 2023/03/01 09:40:34 by cmois            ###   ########.fr       */
+/*   Updated: 2023/03/01 09:55:06 by cmois            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void    ft_putnbr(t_conversion *what, long long nbr)
 	if (nbr < 0)
 	{
 		ft_putchar(what, '-');
+		// printf("goes here\n");
 		nbr *= -1;
 	}
 	if (nbr > 9)

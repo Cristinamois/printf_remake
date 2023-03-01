@@ -6,7 +6,7 @@
 /*   By: cmois <cmois@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 14:07:54 by cmois             #+#    #+#             */
-/*   Updated: 2023/02/28 14:15:08 by cmois            ###   ########.fr       */
+/*   Updated: 2023/03/01 09:57:21 by cmois            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	putPointer(t_conversion *what, long long nbr)
 {
 	if (nbr >= 16)
 	{
+		// printf("nbr : %lld\n", nbr);
 		putPointer(what, (nbr / 16));
 		putPointer(what, (nbr % 16));
 	}
@@ -44,7 +45,7 @@ void    treatHexa(t_conversion *what, char c)
     if (c == P)
     {
         ft_putstr(what, "0x");
-        putPointer(what, c);
+        putPointer(what, what->_ifNumber);
     }
     if (c == x || c == X)
         putHexa(what, what->_ifNumber, c);
