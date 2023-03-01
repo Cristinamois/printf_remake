@@ -6,7 +6,7 @@
 /*   By: cmois <cmois@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:37:28 by cmois             #+#    #+#             */
-/*   Updated: 2023/03/01 14:09:42 by cmois            ###   ########.fr       */
+/*   Updated: 2023/03/01 14:17:18 by cmois            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,9 @@ void    whoIsIt(t_conversion *what, char c)
             what->_isSpace = false;
         }
         if (what->_isMinus == false)
+        {
             ft_putnbr(what, what->_ifNumber);
+        }
         what->_isZero = false;
         what->_isPlus = false;
         what->_isMinus = false;

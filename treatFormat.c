@@ -6,7 +6,7 @@
 /*   By: cmois <cmois@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 13:52:21 by cmois             #+#    #+#             */
-/*   Updated: 2023/03/01 14:13:29 by cmois            ###   ########.fr       */
+/*   Updated: 2023/03/01 14:17:21 by cmois            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,8 @@ void    treatPlus(t_conversion *what)
     }
     if (what->_ifNumber > 0)
     {
-        if (what->_ARGNBR > what->_argLen)
-            for (int i = 0; (i < what->_ARGNBR - 1); i++)
-                ft_putchar(what, ' ');
+        for (int i = 0; (i < what->_ARGNBR - 1); i++)
+             ft_putchar(what, ' ');
         ft_putchar(what, '+');
     }
     if (what->_ifNumber < 0)
