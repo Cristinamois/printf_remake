@@ -6,7 +6,7 @@
 /*   By: cmois <cmois@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:37:28 by cmois             #+#    #+#             */
-/*   Updated: 2023/03/01 12:41:53 by cmois            ###   ########.fr       */
+/*   Updated: 2023/03/01 13:26:52 by cmois            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ void    whoIsIt(t_conversion *what, char c)
         if (what->_isMinus == true)
         {
             ft_putnbr(what, what->_ifNumber);
+            if (what->_ifNumber == 0)
+                what->_ARGNBR -= 1;
             for (int i = 0; i < what->_ARGNBR; i++)
                 ft_putchar(what, ' ');
         }
@@ -175,6 +177,12 @@ void    whoIsIt(t_conversion *what, char c)
         what->_ifNumber = (unsigned int)va_arg(what->paramInfo, unsigned int);
         what->_argLen = argLenUInt(what->_ifNumber, what);
         what->_ARGNBR -= what->_argLen;
+        if (what->_isMinus == true)
+        {
+            ft_putnbr(what, what->_ifNumber);
+            for (int i = 0; i < what->_ARGNBR; i++)
+                ft_putchar(what, ' ');
+        }
         if (what->_isZero == true)
         {
             for (int i = 0; i < what->_ARGNBR; i++)
