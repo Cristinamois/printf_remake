@@ -59,6 +59,8 @@ void    parser(t_conversion *what, const char *str);
 void doTheJob(t_conversion *what, char c);
 void    treatHexa(t_conversion *what, char c);
 
+//FORMAT TREATING//
+void    treatFormat(t_conversion *what, int rep);
 
 //reset/free//
 

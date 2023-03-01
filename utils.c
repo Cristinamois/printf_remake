@@ -6,7 +6,7 @@
 /*   By: cmois <cmois@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:32:54 by cmois             #+#    #+#             */
-/*   Updated: 2023/03/01 10:48:07 by cmois            ###   ########.fr       */
+/*   Updated: 2023/03/01 13:58:27 by cmois            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ void resetToOrigin(t_conversion *what)
 	what->_count = 0;
 	what->_argLen = 0;
 	what->_ARGNBR = 0;
+	what->_isMinus = false;
+	what->_isSpace = false;
 }
 
 // char	*joinNumbers(t_conversion *what, char c)

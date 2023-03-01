@@ -6,12 +6,18 @@
 /*   By: cmois <cmois@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:37:28 by cmois             #+#    #+#             */
-/*   Updated: 2023/03/01 13:35:29 by cmois            ###   ########.fr       */
+/*   Updated: 2023/03/01 14:09:42 by cmois            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "r_printf.h"
 
+bool    isThereFormat(t_conversion *what)
+{
+    if (what->_isSpace == true || what->_isZero == true || what->_isPlus == true || what->_isMinus == true || what->_hashtag == true)
+        return (true);
+    return (false);
+}
 
 void    whoIsIt(t_conversion *what, char c)
 {
@@ -20,47 +26,21 @@ void    whoIsIt(t_conversion *what, char c)
         what->_ifChar = va_arg(what->paramInfo, int);
         what->_argLen = 1;
         what->_ARGNBR -= what->_argLen;
-        if (what->_isMinus == true)
-        {
-            ft_putchar(what, what->_ifChar);
-            for (int i = 0; i < what->_ARGNBR; i++)
-                ft_putchar(what, ' ');
-        }
-        if (what->_isSpace == true)
-        {
-            for (int i = 0; i < what->_ARGNBR; i++)
-            {
-                ft_putchar(what, ' ');
-            }
-            what->_isSpace = false;
-        }
-        resetToOrigin(what);
+        if (isThereFormat(what))
+            treatFormat(what, 1);
         if (what->_isMinus == false)
             ft_putchar(what, what->_ifChar);
-        what->_isMinus = false;
+        resetToOrigin(what);
     }
     if (c == S)
     {
         what->_ifStr = (char*)va_arg(what->paramInfo, char *);
         what->_argLen = argLenStr(what->_ifStr, what);
         what->_ARGNBR -= what->_argLen;
-        if (what->_isMinus == true)
-        {
-            ft_putstr(what, what->_ifStr);
-            for (int i = 0; i < what->_ARGNBR; i++)
-                ft_putchar(what, ' ');
-        }
-        if (what->_isSpace == true)
-        {
-            for (int i = 0; i < what->_ARGNBR; i++)
-            {
-                ft_putchar(what, ' ');
-            }
-            what->_isSpace = false;
-        }
+        if (isThereFormat(what))
+            treatFormat(what, 2);
         if (what->_isMinus == false)
             ft_putstr(what, what->_ifStr);
-        what->_isMinus = false;
         resetToOrigin(what);
     }
     if (c == 'd' || c == I)
@@ -68,32 +48,8 @@ void    whoIsIt(t_conversion *what, char c)
         what->_ifNumber = (int)va_arg(what->paramInfo, int);
         what->_argLen = argLenInt(what->_ifNumber, what);
         what->_ARGNBR -= what->_argLen;
-        if (what->_isMinus == true)
-        {
-            ft_putnbr(what, what->_ifNumber);
-            if (what->_ifNumber == 0)
-                what->_ARGNBR -= 1;
-            for (int i = 0; i < what->_ARGNBR; i++)
-                ft_putchar(what, ' ');
-        }
-        if (what->_isPlus == true)
-        {
-            if (what->_ifNumber == 0)
-            {
-                for (int i = 0; (i < what->_ARGNBR - 2); i++)
-                    ft_putchar(what, ' ');
-                ft_putchar(what, '+');
-            }
-            if (what->_ifNumber > 0)
-            {
-                for (int i = 0; (i < what->_ARGNBR - 1); i++)
-                    ft_putchar(what, ' ');
-                ft_putchar(what, '+');
-            }
-            if (what->_ifNumber < 0)
-                for (int i = 0; i < what->_ARGNBR - 1; i++)
-                    ft_putchar(what, ' ');
-        }
+        if (isThereFormat(what))
+            treatFormat(what, 3);
         if (what->_isZero == true)
         {
             ft_putchar(what, '-');
