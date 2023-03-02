@@ -6,7 +6,7 @@
 /*   By: cmois <cmois@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 14:07:54 by cmois             #+#    #+#             */
-/*   Updated: 2023/03/01 09:57:21 by cmois            ###   ########.fr       */
+/*   Updated: 2023/03/02 11:48:06 by cmois            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	putPointer(t_conversion *what, long long nbr)
 
 void    treatHexa(t_conversion *what, char c)
 {
-    if (c == P)
+    if (c)
     {
         ft_putstr(what, "0x");
         putPointer(what, what->_ifNumber);

@@ -22,6 +22,8 @@
 # define U 'u'
 # define x 'x'
 # define X 'X'
+# define f 'f'
+# define F 'F'
 
 
 typedef struct s_conversion
@@ -41,6 +43,7 @@ typedef struct s_conversion
     char                *_ARGVAL;
     int                 _ARGNBR;
     int                 _count;
+    char                _actual;
 }               t_conversion;
 
 //UTILS//

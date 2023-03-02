@@ -6,7 +6,7 @@
 /*   By: cmois <cmois@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 13:52:21 by cmois             #+#    #+#             */
-/*   Updated: 2023/03/02 11:05:49 by cmois            ###   ########.fr       */
+/*   Updated: 2023/03/02 11:51:00 by cmois            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 void    treatSpace(t_conversion *what)
 {
     for (int i = 0; i < what->_ARGNBR; i++)
-            {
-                ft_putchar(what, ' ');
-            }
-            what->_isSpace = false;
+    {
+        ft_putchar(what, ' ');
+    }
 }
 
 void    treatMinus(t_conversion *what, int rep)
@@ -43,6 +42,12 @@ void    treatMinus(t_conversion *what, int rep)
         for (int i = 0; i < what->_ARGNBR; i++)
             ft_putchar(what, ' ');
     }
+    if (what->_isMinus == true && rep == 4)
+    {
+        treatHexa(what, what->_actual);
+        for (int i = 0; i < what->_ARGNBR + 1; i++)
+             ft_putchar(what, ' ');
+    }
 }
 
 void    treatPlus(t_conversion *what)
@@ -64,6 +69,27 @@ void    treatPlus(t_conversion *what)
             ft_putchar(what, ' ');
 }
 
+void    treatZero(t_conversion *what)
+{
+    if (what->_ifNumber < 0)
+    {
+        ft_putchar(what, '-');
+        what->_ARGNBR -= 1;
+    }
+    for (int i = 0; i < what->_ARGNBR; i++)
+    {
+        ft_putchar(what, '0');
+    }
+}
+
+void    treatHashtag(t_conversion *what)
+{
+    what->_ARGNBR -= 2;
+    for (int i = 0; i < what->_ARGNBR; i++)
+        ft_putchar(what, ' ');
+    ft_putstr(what, "0x");
+}
+
 void    treatFormat(t_conversion *what, int rep)
 {
     if (what->_isSpace == true)
@@ -72,5 +98,9 @@ void    treatFormat(t_conversion *what, int rep)
         treatMinus(what, rep);
     if (what->_isPlus == true)
         treatPlus(what);
+    if (what->_isZero == true)
+        treatZero(what);
+    if (what->_hashtag ==true)
+        treatHashtag(what);
         
 }
