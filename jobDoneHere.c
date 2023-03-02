@@ -6,7 +6,7 @@
 /*   By: cmois <cmois@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:37:28 by cmois             #+#    #+#             */
-/*   Updated: 2023/03/02 11:55:22 by cmois            ###   ########.fr       */
+/*   Updated: 2023/03/02 11:56:29 by cmois            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void    whoIsIt(t_conversion *what, char c)
         if (what->_isMinus == false)
             ft_putnbr(what, what->_ifNumber);
         resetToOrigin(what);
+    }
     if (c == P || c == x || c == X)
     {
         what->_actual = c;
@@ -97,8 +98,6 @@ void    whoIsIt(t_conversion *what, char c)
         ft_putchar(what, c);
         resetToOrigin(what);
     }
-        
-
 }
 
 void doTheJob(t_conversion *what, char c)
