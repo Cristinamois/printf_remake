@@ -6,7 +6,7 @@
 /*   By: cmois <cmois@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:29:47 by cmois             #+#    #+#             */
-/*   Updated: 2023/03/01 13:47:55 by cmois            ###   ########.fr       */
+/*   Updated: 2023/03/02 11:04:13 by cmois            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ bool    isItWhatWeWant(t_conversion *what, const char *str, int i)
 {
     if ((str[i] == ' ' && (str[i + 1] >= '0' && str[i + 1] <= '9')) || (str[i] == '0' && (str[i + 1] >= '0' && str[i + 1] <= '9'))
                 || (str[i] == '+' && (str[i + 1] >= '0' && str[i + 1] <= '9')) || (str[i] == '-' && (str[i + 1] >= '0' && str[i + 1] <= '9'))
-                || (str[i] == '#' && (str[i + 1] >= '0' && str[i + 1] <= '9')) || str[i] == '#')
+                || (str[i] == '#' && (str[i + 1] >= '0' && str[i + 1] <= '9')) || str[i] == '#' || str[i] == '+')
     {
         if (str[i] == '#')
              what->_hashtag = true;
