@@ -6,7 +6,7 @@
 /*   By: cmois <cmois@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 13:37:28 by cmois             #+#    #+#             */
-/*   Updated: 2023/03/02 11:56:29 by cmois            ###   ########.fr       */
+/*   Updated: 2023/03/07 09:32:19 by cmois            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void    whoIsIt(t_conversion *what, char c)
     {
         what->_argLen = 1;
         what->_ARGNBR -= what->_argLen;
-        if (isthereFormat(what))
+        if (isThereFormat(what))
             treatFormat(what, 0);
         ft_putchar(what, c);
         resetToOrigin(what);
